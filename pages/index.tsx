@@ -28,6 +28,7 @@ export default function IndexPage() {
           <ActionIcon
             variant="transparent"
             color="gray"
+            loading={mutation.isPending}
             onClick={() => mutation.mutate()}
           >
             <IconSearch />
@@ -36,6 +37,10 @@ export default function IndexPage() {
         variant="filled"
         value={query}
         onChange={(event) => setQuery(event.currentTarget.value)}
+        onKeyDown={(e) => {
+          if (!e.nativeEvent.isComposing && e.key === "Enter")
+            mutation.mutate();
+        }}
       />
       {mutation.isSuccess && !isMobile && (
         <Group grow align="start">

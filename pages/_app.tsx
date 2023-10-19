@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }: any) {
         />
       </Head>
       <QueryClientProvider client={queryClient}>
-        <Container my="xl">
+        <Container my="md">
           <Component {...pageProps} />
         </Container>
       </QueryClientProvider>
